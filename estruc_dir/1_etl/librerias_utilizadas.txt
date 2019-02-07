@@ -1,0 +1,8 @@
+log4net.dll
+MongoDB.Bson.dll
+MongoDB.Bson.xml
+MongoDB.Driver.Core.dll
+MongoDB.Driver.Core.xml
+MongoDB.Driver.dll
+MongoDB.Driver.xml
+Newtonsoft.Json.dll

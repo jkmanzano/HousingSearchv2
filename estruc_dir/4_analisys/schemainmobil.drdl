@@ -1,0 +1,571 @@
+schema:
+- db: inmobil
+  tables:
+  - table: codspostals
+    collection: codspostals
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: objectid
+    - Name: CodPostal
+      MongoType: string
+      SqlName: CodPostal
+      SqlType: varchar
+    - Name: Descripcion
+      MongoType: string
+      SqlName: Descripcion
+      SqlType: varchar
+    - Name: flastupd
+      MongoType: string
+      SqlName: flastupd
+      SqlType: varchar
+    - Name: Latitud
+      MongoType: string
+      SqlName: Latitud
+      SqlType: varchar
+    - Name: location.type
+      MongoType: string
+      SqlName: location.type
+      SqlType: varchar
+    - Name: Longitud
+      MongoType: string
+      SqlName: Longitud
+      SqlType: varchar
+    - Name: Poblacion
+      MongoType: string
+      SqlName: Poblacion
+      SqlType: varchar
+  - table: codspostals_location_coordinates
+    collection: codspostals
+    pipeline:
+    - $unwind:
+        includeArrayIndex: location.coordinates_idx
+        path: $location.coordinates
+        preserveNullAndEmptyArrays: false
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: objectid
+    - Name: location.coordinates
+      MongoType: float64
+      SqlName: location.coordinates
+      SqlType: float
+    - Name: location.coordinates_idx
+      MongoType: int
+      SqlName: location.coordinates_idx
+      SqlType: int
+  - table: oferta_inmo
+    collection: oferta_inmo
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: objectid
+    - Name: bathroom_number
+      MongoType: float64
+      SqlName: bathroom_number
+      SqlType: float
+    - Name: bedroom_number
+      MongoType: float64
+      SqlName: bedroom_number
+      SqlType: float
+    - Name: boxroom
+      MongoType: float64
+      SqlName: boxroom
+      SqlType: float
+    - Name: car_spaces
+      MongoType: float64
+      SqlName: car_spaces
+      SqlType: float
+    - Name: cod_postal
+      MongoType: string
+      SqlName: cod_postal
+      SqlType: varchar
+    - Name: commission
+      MongoType: int
+      SqlName: commission
+      SqlType: int
+    - Name: construction_year
+      MongoType: float64
+      SqlName: construction_year
+      SqlType: float
+    - Name: datasource_name
+      MongoType: string
+      SqlName: datasource_name
+      SqlType: varchar
+    - Name: des_area
+      MongoType: string
+      SqlName: des_area
+      SqlType: varchar
+    - Name: des_city
+      MongoType: string
+      SqlName: des_city
+      SqlType: varchar
+    - Name: des_country
+      MongoType: string
+      SqlName: des_country
+      SqlType: varchar
+    - Name: des_state
+      MongoType: string
+      SqlName: des_state
+      SqlType: varchar
+    - Name: FInsert
+      MongoType: string
+      SqlName: FInsert
+      SqlType: varchar
+    - Name: floor
+      MongoType: float64
+      SqlName: floor
+      SqlType: float
+    - Name: FUpdate
+      MongoType: string
+      SqlName: FUpdate
+      SqlType: varchar
+    - Name: img_height
+      MongoType: int
+      SqlName: img_height
+      SqlType: int
+    - Name: img_url
+      MongoType: string
+      SqlName: img_url
+      SqlType: varchar
+    - Name: img_width
+      MongoType: int
+      SqlName: img_width
+      SqlType: int
+    - Name: keywords
+      MongoType: string
+      SqlName: keywords
+      SqlType: varchar
+    - Name: latitude
+      MongoType: float64
+      SqlName: latitude
+      SqlType: float
+    - Name: lister_name
+      MongoType: string
+      SqlName: lister_name
+      SqlType: varchar
+    - Name: lister_url
+      MongoType: string
+      SqlName: lister_url
+      SqlType: varchar
+    - Name: listing_type
+      MongoType: string
+      SqlName: listing_type
+      SqlType: varchar
+    - Name: location.type
+      MongoType: string
+      SqlName: location.type
+      SqlType: varchar
+    - Name: location_accuracy
+      MongoType: int
+      SqlName: location_accuracy
+      SqlType: int
+    - Name: longitude
+      MongoType: float64
+      SqlName: longitude
+      SqlType: float
+    - Name: PER
+      MongoType: float64
+      SqlName: PER
+      SqlType: float
+    - Name: price
+      MongoType: float64
+      SqlName: price
+      SqlType: float
+    - Name: price_currency
+      MongoType: string
+      SqlName: price_currency
+      SqlType: varchar
+    - Name: price_formatted
+      MongoType: string
+      SqlName: price_formatted
+      SqlType: varchar
+    - Name: price_high
+      MongoType: int
+      SqlName: price_high
+      SqlType: int
+    - Name: price_low
+      MongoType: int
+      SqlName: price_low
+      SqlType: int
+    - Name: price_opcion_1
+      MongoType: float64
+      SqlName: price_opcion_1
+      SqlType: float
+    - Name: price_opcion_2
+      MongoType: float64
+      SqlName: price_opcion_2
+      SqlType: float
+    - Name: price_rent_estimated
+      MongoType: float64
+      SqlName: price_rent_estimated
+      SqlType: float
+    - Name: price_rent_estimated_2
+      MongoType: float64
+      SqlName: price_rent_estimated_2
+      SqlType: float
+    - Name: price_rent_estimated_2_gp
+      MongoType: float64
+      SqlName: price_rent_estimated_2_gp
+      SqlType: float
+    - Name: price_rent_estimated_gp
+      MongoType: float64
+      SqlName: price_rent_estimated_gp
+      SqlType: float
+    - Name: price_rent_real
+      MongoType: float64
+      SqlName: price_rent_real
+      SqlType: float
+    - Name: price_sale_estimated
+      MongoType: float64
+      SqlName: price_sale_estimated
+      SqlType: float
+    - Name: price_sale_estimated_2
+      MongoType: float64
+      SqlName: price_sale_estimated_2
+      SqlType: float
+    - Name: price_sale_estimated_2_gp
+      MongoType: float64
+      SqlName: price_sale_estimated_2_gp
+      SqlType: float
+    - Name: price_sale_estimated_gp
+      MongoType: float64
+      SqlName: price_sale_estimated_gp
+      SqlType: float
+    - Name: price_sale_real
+      MongoType: float64
+      SqlName: price_sale_real
+      SqlType: float
+    - Name: property_type
+      MongoType: string
+      SqlName: property_type
+      SqlType: varchar
+    - Name: room_number
+      MongoType: float64
+      SqlName: room_number
+      SqlType: float
+    - Name: size
+      MongoType: float64
+      SqlName: size
+      SqlType: float
+    - Name: size_type
+      MongoType: string
+      SqlName: size_type
+      SqlType: varchar
+    - Name: size_unit
+      MongoType: string
+      SqlName: size_unit
+      SqlType: varchar
+    - Name: summary
+      MongoType: string
+      SqlName: summary
+      SqlType: varchar
+    - Name: thumb_height
+      MongoType: int
+      SqlName: thumb_height
+      SqlType: int
+    - Name: thumb_url
+      MongoType: string
+      SqlName: thumb_url
+      SqlType: varchar
+    - Name: thumb_width
+      MongoType: int
+      SqlName: thumb_width
+      SqlType: int
+    - Name: title
+      MongoType: string
+      SqlName: title
+      SqlType: varchar
+    - Name: UID
+      MongoType: string
+      SqlName: UID
+      SqlType: varchar
+    - Name: updated_in_days
+      MongoType: float64
+      SqlName: updated_in_days
+      SqlType: float
+    - Name: updated_in_days_formatted
+      MongoType: string
+      SqlName: updated_in_days_formatted
+      SqlType: varchar
+  - table: oferta_inmo_his
+    collection: oferta_inmo_his
+    pipeline: []
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: objectid
+    - Name: bathroom_number
+      MongoType: float64
+      SqlName: bathroom_number
+      SqlType: float
+    - Name: bedroom_number
+      MongoType: float64
+      SqlName: bedroom_number
+      SqlType: float
+    - Name: boxroom
+      MongoType: float64
+      SqlName: boxroom
+      SqlType: float
+    - Name: car_spaces
+      MongoType: float64
+      SqlName: car_spaces
+      SqlType: float
+    - Name: cod_postal
+      MongoType: string
+      SqlName: cod_postal
+      SqlType: varchar
+    - Name: commission
+      MongoType: int
+      SqlName: commission
+      SqlType: int
+    - Name: construction_year
+      MongoType: float64
+      SqlName: construction_year
+      SqlType: float
+    - Name: datasource_name
+      MongoType: string
+      SqlName: datasource_name
+      SqlType: varchar
+    - Name: des_area
+      MongoType: string
+      SqlName: des_area
+      SqlType: varchar
+    - Name: des_city
+      MongoType: string
+      SqlName: des_city
+      SqlType: varchar
+    - Name: des_country
+      MongoType: string
+      SqlName: des_country
+      SqlType: varchar
+    - Name: des_state
+      MongoType: string
+      SqlName: des_state
+      SqlType: varchar
+    - Name: FInsert
+      MongoType: string
+      SqlName: FInsert
+      SqlType: varchar
+    - Name: floor
+      MongoType: float64
+      SqlName: floor
+      SqlType: float
+    - Name: FUpdate
+      MongoType: string
+      SqlName: FUpdate
+      SqlType: varchar
+    - Name: img_height
+      MongoType: int
+      SqlName: img_height
+      SqlType: int
+    - Name: img_url
+      MongoType: string
+      SqlName: img_url
+      SqlType: varchar
+    - Name: img_width
+      MongoType: int
+      SqlName: img_width
+      SqlType: int
+    - Name: keywords
+      MongoType: string
+      SqlName: keywords
+      SqlType: varchar
+    - Name: latitude
+      MongoType: float64
+      SqlName: latitude
+      SqlType: float
+    - Name: lister_name
+      MongoType: string
+      SqlName: lister_name
+      SqlType: varchar
+    - Name: lister_url
+      MongoType: string
+      SqlName: lister_url
+      SqlType: varchar
+    - Name: listing_type
+      MongoType: string
+      SqlName: listing_type
+      SqlType: varchar
+    - Name: location.type
+      MongoType: string
+      SqlName: location.type
+      SqlType: varchar
+    - Name: location_accuracy
+      MongoType: int
+      SqlName: location_accuracy
+      SqlType: int
+    - Name: longitude
+      MongoType: float64
+      SqlName: longitude
+      SqlType: float
+    - Name: PER
+      MongoType: float64
+      SqlName: PER
+      SqlType: float
+    - Name: price
+      MongoType: float64
+      SqlName: price
+      SqlType: float
+    - Name: price_currency
+      MongoType: string
+      SqlName: price_currency
+      SqlType: varchar
+    - Name: price_formatted
+      MongoType: string
+      SqlName: price_formatted
+      SqlType: varchar
+    - Name: price_high
+      MongoType: int
+      SqlName: price_high
+      SqlType: int
+    - Name: price_low
+      MongoType: int
+      SqlName: price_low
+      SqlType: int
+    - Name: price_opcion_1
+      MongoType: float64
+      SqlName: price_opcion_1
+      SqlType: float
+    - Name: price_opcion_2
+      MongoType: float64
+      SqlName: price_opcion_2
+      SqlType: float
+    - Name: price_rent_estimated
+      MongoType: float64
+      SqlName: price_rent_estimated
+      SqlType: float
+    - Name: price_rent_estimated_2
+      MongoType: float64
+      SqlName: price_rent_estimated_2
+      SqlType: float
+    - Name: price_rent_estimated_2_gp
+      MongoType: float64
+      SqlName: price_rent_estimated_2_gp
+      SqlType: float
+    - Name: price_rent_estimated_gp
+      MongoType: float64
+      SqlName: price_rent_estimated_gp
+      SqlType: float
+    - Name: price_rent_real
+      MongoType: float64
+      SqlName: price_rent_real
+      SqlType: float
+    - Name: price_sale_estimated
+      MongoType: float64
+      SqlName: price_sale_estimated
+      SqlType: float
+    - Name: price_sale_estimated_2
+      MongoType: float64
+      SqlName: price_sale_estimated_2
+      SqlType: float
+    - Name: price_sale_estimated_2_gp
+      MongoType: float64
+      SqlName: price_sale_estimated_2_gp
+      SqlType: float
+    - Name: price_sale_estimated_gp
+      MongoType: float64
+      SqlName: price_sale_estimated_gp
+      SqlType: float
+    - Name: price_sale_real
+      MongoType: float64
+      SqlName: price_sale_real
+      SqlType: float
+    - Name: property_type
+      MongoType: string
+      SqlName: property_type
+      SqlType: varchar
+    - Name: room_number
+      MongoType: float64
+      SqlName: room_number
+      SqlType: float
+    - Name: size
+      MongoType: float64
+      SqlName: size
+      SqlType: float
+    - Name: size_type
+      MongoType: string
+      SqlName: size_type
+      SqlType: varchar
+    - Name: size_unit
+      MongoType: string
+      SqlName: size_unit
+      SqlType: varchar
+    - Name: summary
+      MongoType: string
+      SqlName: summary
+      SqlType: varchar
+    - Name: thumb_height
+      MongoType: int
+      SqlName: thumb_height
+      SqlType: int
+    - Name: thumb_url
+      MongoType: string
+      SqlName: thumb_url
+      SqlType: varchar
+    - Name: thumb_width
+      MongoType: int
+      SqlName: thumb_width
+      SqlType: int
+    - Name: title
+      MongoType: string
+      SqlName: title
+      SqlType: varchar
+    - Name: UID
+      MongoType: string
+      SqlName: UID
+      SqlType: varchar
+    - Name: updated_in_days
+      MongoType: float64
+      SqlName: updated_in_days
+      SqlType: float
+    - Name: updated_in_days_formatted
+      MongoType: string
+      SqlName: updated_in_days_formatted
+      SqlType: varchar
+  - table: oferta_inmo_his_location_coordinates
+    collection: oferta_inmo_his
+    pipeline:
+    - $unwind:
+        includeArrayIndex: location.coordinates_idx
+        path: $location.coordinates
+        preserveNullAndEmptyArrays: false
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: objectid
+    - Name: location.coordinates
+      MongoType: float64
+      SqlName: location.coordinates
+      SqlType: float
+    - Name: location.coordinates_idx
+      MongoType: int
+      SqlName: location.coordinates_idx
+      SqlType: int
+  - table: oferta_inmo_location_coordinates
+    collection: oferta_inmo
+    pipeline:
+    - $unwind:
+        includeArrayIndex: location.coordinates_idx
+        path: $location.coordinates
+        preserveNullAndEmptyArrays: false
+    columns:
+    - Name: _id
+      MongoType: bson.ObjectId
+      SqlName: _id
+      SqlType: objectid
+    - Name: location.coordinates
+      MongoType: float64
+      SqlName: location.coordinates
+      SqlType: float
+    - Name: location.coordinates_idx
+      MongoType: int
+      SqlName: location.coordinates_idx
+      SqlType: int
